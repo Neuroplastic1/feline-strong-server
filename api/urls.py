@@ -1,5 +1,5 @@
 from django.urls import path
-from .views.felineStrong_views import FitnessPlans, Detail
+from .views.felineStrong_views import FitnessPlans, FitnessPlanDetail
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
 
 urlpatterns = [
