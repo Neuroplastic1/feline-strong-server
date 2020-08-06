@@ -7,8 +7,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user, authenticate, login, logout
 from django.middleware.csrf import get_token
 
-from ..models.felineStrong import FelineStrong
-from ..serializers import MangoSerializer, UserSerializer
+from ..models.fitnessPlan import FitnessPlan
+from ..serializers import FitnessPlanSerializer, UserSerializer
 
 # Create your views here.
 class FitnessPlan(generics.ListCreateAPIView):
