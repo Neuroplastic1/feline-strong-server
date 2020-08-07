@@ -13,14 +13,14 @@ from ..serializers import FitnessPlanSerializer, UserSerializer
 # Create your views here.
 class FitnessPlans(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
+  serializer_class = FitnessPlanSerializer
   def get(self, request):
-    """Index request"""
   # mangos = Mango.objects.all()
     fitnessPlans = FitnessPlan.objects.filter(owner=request.user.id)
     data = FitnessPlanSerializer(fitnessPlans, many=True).data
     return Response(data)
 
-  serializer_class = FitnessPlanSerializer
+
   def post(self, request):
     """Create request"""
     # Add user to request object
@@ -35,6 +35,8 @@ class FitnessPlans(generics.ListCreateAPIView):
 
 class FitnessPlanDetail(generics.RetrieveUpdateDestroyAPIView):
   permission_classes=(IsAuthenticated,)
+  queryset = FitnessPlan.objects.all()
+  serializer_class = FitnessPlanSerializer
   def get(self, request, pk):
     """Show request"""
     fitnessPlan = get_object_or_404(FitnessPlan, pk=pk)
