@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:8000/FitnessPlans/${ID}" \
+curl "http://localhost:8000/fitnessPlans/${ID}/" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
