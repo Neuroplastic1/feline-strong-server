@@ -19,7 +19,7 @@ class FitnessPlan(models.Model):
     return f"date:{self.date} plan:{self.plan} nutrition:{self.nutrition} "
 
   def as_dict(self):
-    """Returns dictionary version of Mango models"""
+    """Returns dictionary version of fitnessPlan models"""
     return {
         'id': self.id,
         'date': self.date,
