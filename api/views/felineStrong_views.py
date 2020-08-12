@@ -51,7 +51,7 @@ class FitnessPlanDetail(generics.RetrieveUpdateDestroyAPIView):
     # We want to compare the `request.user` against the owner
     # of the mango we find above with `get_object_or_404`
     # If they're not the same, give the client a error that they
-    # do not have access to this mango.do not own this fitnessPlan')
+    # do not have access to this plan.do not own this fitnessPlan')
     if not request.user.id == fitnessPlan.owner.id:
             raise PermissionDenied('Unauthorized, owner doesnt match.')
     return Response(data)
