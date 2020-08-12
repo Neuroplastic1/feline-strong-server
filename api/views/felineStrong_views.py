@@ -15,6 +15,7 @@ class FitnessPlans(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
   serializer_class = FitnessPlanSerializer
   def get(self, request):
+    """index request"""
   # mangos = Mango.objects.all()
     fitnessPlans = FitnessPlan.objects.filter(owner=request.user.id)
     data = FitnessPlanSerializer(fitnessPlans, many=True).data
@@ -41,6 +42,7 @@ class FitnessPlanDetail(generics.RetrieveUpdateDestroyAPIView):
     """Show request"""
     fitnessPlan = get_object_or_404(FitnessPlan, pk=pk)
     data = FitnessPlanSerializer(fitnessPlan).data
+
     # Only want to show owned fitnessPlans?
     # if not request.user.id == data['owner']:
     #     raise PermissionDenied('Unauthorized, you # Don't really need to change anything UNLESS
@@ -62,25 +64,26 @@ class FitnessPlanDetail(generics.RetrieveUpdateDestroyAPIView):
         fitnessPlan.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def partial_update(self, request, pk):
-      """Update Request"""
-      # Remove owner from request object
-      if request.data['fitnessPlan'].get('owner', False):
-        del request.data['fitnessPlan']['owner']
+  def partial_update(self, request, pk):
+    print("it's our update")
+    """Update Request"""
+    # Remove owner from request object
+    if request.data['fitnessPlan'].get('owner', False):
+      del request.data['fitnessPlan']['owner']
 
-        # Locate FitnessPlan
-      fitnessPlan = get_object_or_404(FitnessPlan, pk=pk)
+      # Locate FitnessPlan
+    fitnessPlan = get_object_or_404(FitnessPlan, pk=pk)
 
-      # Check if user is  the same
-      if not request.user.id == fitnessPlan.owner.id:
-        raise PermissionDenied('Unauthorized, you do not own this fitnessPlan')
+    # Check if user is  the same
+    if not request.user.id == fitnessPlan.owner.id:
+      raise PermissionDenied('Unauthorized, you do not own this fitnessPlan')
 
-      # Add owner to data object now that we know this user owns the resource
-      request.data['fitnessPlan']['owner'] = request.user.id
-      # Validate updates with serializer
-      ms = FitnessPlanSerializer(fitnessPlan, data=request.data['fitnessPlan'])
-      if ms.is_valid():
-        ms.save()
-        # print(ms)
-        return Response(ms.data)
-      return Response(ms.errors, status=status.HTTP_400_BAD_REQUEST)
+    # Add owner to data object now that we know this user owns the resource
+    request.data['fitnessPlan']['owner'] = request.user.id
+    # Validate updates with serializer
+    ms = FitnessPlanSerializer(fitnessPlan, data=request.data['fitnessPlan'])
+    if ms.is_valid():
+      ms.save()
+      # print(ms)
+      return Response(ms.data)
+    return Response(ms.errors, status=status.HTTP_400_BAD_REQUEST)
