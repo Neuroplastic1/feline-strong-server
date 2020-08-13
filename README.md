@@ -31,4 +31,14 @@ This app is designed to plan and track fitness routines for Felines and humans.
 
 ## Planning and process
 I started with planning and scetching wireframes.
- to create a model for a fitness plan for which I made a FItnessPlan class to crud on noted plans as one to many relationship to user. Each plan is only accessible by it's user. 
+ to create a model for a fitness plan for which I made a FItnessPlan class to crud on noted plans as one to many relationship to user. Each plan is only accessible by it's user.
+
+ ## API Information
+### Books
+| Verb   | URI Pattern  | Controller#Action  |
+|:-------|:-------------|:-------------------|
+| GET    | `/plans/`     | `plans#index`  |
+| GET    | `/plans/:id` | `plans#show`   |
+| POST   | `/plans`     | `plans#create` |
+| PATCH  | `/plans/:id` | `plans#update` |
+| DELETE | `/plans/:id` | `plans#destroy` |
