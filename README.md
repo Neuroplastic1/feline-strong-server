@@ -1,5 +1,5 @@
 # Feline Strong
-It's an app to plan and track fitness routines for Felines and humans
+This app is designed to plan and track fitness routines for Felines and humans.
 
 ## Links to Repositories and Deployed sites
 - [Deployed Application](https://neuroplastic1.github.io/feline-strong-client/)
@@ -7,13 +7,11 @@ It's an app to plan and track fitness routines for Felines and humans
 - [Backend API URL](https://git.heroku.com/feline-strong-server.git)
 
 ## Technologies Used
-- React Hooks
-- React Bootstrap
-- Axios
-- JSX
-- CSS
-- HTML
+- Python
+- Django
+- Postman
 - cURL Scripts
+- Heroku
 
 ## User Stories
 - As a user, I can sign up
@@ -26,5 +24,11 @@ It's an app to plan and track fitness routines for Felines and humans
 - As a user, I can edit a Fitness Plan
 - As a user, I can delete a Plan
 
-## Planning
-- I started with planning the wireframe 
+
+## Links to Entity Relation Diagram
+
+ https://imgur.com/gallery/KKIucKN
+
+## Planning and process
+I started with planning and scetching wireframes.
+ to create a model for a fitness plan for which I made a FItnessPlan class to crud on noted plans as one to many relationship to user. Each plan is only accessible by it's user. 
