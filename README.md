@@ -34,7 +34,7 @@ I started with planning and scetching wireframes.
  to create a model for a fitness plan for which I made a FItnessPlan class to crud on noted plans as one to many relationship to user. Each plan is only accessible by it's user.
 
  ## API Information
-### Books
+### Plans
 | Verb   | URI Pattern  | Controller#Action  |
 |:-------|:-------------|:-------------------|
 | GET    | `/plans/`     | `plans#index`  |
