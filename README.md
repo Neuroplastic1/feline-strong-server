@@ -3,7 +3,7 @@ This app is designed to plan and track fitness routines for Felines and humans.
 
 ## Links to Repositories and Deployed sites
 - [Deployed Application](https://neuroplastic1.github.io/feline-strong-client/)
-- [Backend API Repository](https://github.com/Neuroplastic1/feline-strong-server)
+- [Client API Repository](https://github.com/Neuroplastic1/feline-strong-client)
 - [Backend API URL](https://git.heroku.com/feline-strong-server.git)
 
 ## Technologies Used
