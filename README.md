@@ -1,4 +1,4 @@
-# Feline Strong
+# Feline Strong :octocat:
 This app is designed to plan and track fitness routines for Felines and humans.
 
 ## Links to Repositories and Deployed sites
